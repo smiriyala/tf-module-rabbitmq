@@ -34,7 +34,7 @@ resource "aws_route53_record" "main" {
   name    = "rabbitmq-${var.env}.${var.dns_domain}"
   type    = "A"
   ttl     = 30
-  records = [aws_spot_instance_request.rabbitmq.private_ip]
+  records = [aws_instance.rabbitmq.private_ip]
 }
 
 resource "aws_security_group" "main" {
